@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 
+const shortener = require('./utils/shortener')
+
 // 資料庫連線設定
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
