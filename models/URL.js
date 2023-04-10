@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const URLshortenerSchema = new Schema({
+const URLSchema = new Schema({
   full: {
     type: String,
     required: true
@@ -8,7 +8,8 @@ const URLshortenerSchema = new Schema({
   short: {
     type: String, 
     required: true
+    
   }
 })
 
-module.exports = mongoose.model('URLShortener', URLshortenerSchema)
+module.exports = mongoose.model('URL', URLSchema)

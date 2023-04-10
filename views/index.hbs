@@ -1,4 +1,20 @@
+{{#if shortenURL}}
+<h3 class="mb-3">Success! Please use this link :</h3>
+<a href="{{ origin }}/{{ shortenURL}}" id="shortenURL">{{ origin }}/{{ shortenURL }}</a>
+<button class="btn btn-outline-primary mt-2" onclick="myFunction()">Copy</button>
+
+<script>
+  function myFunction() {
+    const url = document.getElementById('shortenURL')
+    navigator.clipboard.writeText(url.innerText)
+      .then(() => alert('copied!'))
+      .catch((error) => console.log(error))
+  }
+</script>
+
+{{ else }}
 <form action="/" method="POST" class="container d-flex flex-column align-items-center">
   <input type="text" name="full" placeholder="Input Your URL here" class="mb-4 w-75   form-control">
   <button type="submit" class="btn btn-outline-primary w-25">Shorten</button>
 </form>
+{{/if}}
