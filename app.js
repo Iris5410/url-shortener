@@ -49,6 +49,18 @@ app.post('/', (req, res) => {
      .catch(error => console.log(error))
 })
 
+// 使用 params 設定短網址路由
+app.get('/:shortURL', (req, res) => {
+  URL.findOne({ short: req.params.shortURL})
+    .then(data => {
+      if (!data) {
+        return res.render('error')
+      }
+      res.redirect(data.full)
+    })
+    .catch((error) => console.log(error))
+})
+
 app.listen('3000', () => {
   console.log('App is running on localhost:3000')
 })
