@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const exphbs = require('express-handlebars')
 
+// 資料庫連線設定
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
@@ -16,8 +18,13 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+// 設定 view-engine
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
+
+// 主頁路由設定
 app.get('/', (req, res) => 
-  res.send('hi, this is url-shortener!')
+  res.render('index')
 )
 
 app.listen('3000', () => {
