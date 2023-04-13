@@ -28,7 +28,8 @@ A web application for shortening you URL.
 7. If you see the message below, it means the program is running successfully :
   ```bash 
   App is running on localhost:3000
-  mongodb connected! ```    
+  mongodb connected! 
+  ```    
 8. You can access it through this URL :
   ```bash
   http://localhost:3000  
