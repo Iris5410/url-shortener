@@ -34,7 +34,9 @@ app.get('/', (req, res) =>
 
 app.post('/', (req, res) => {
   const full = req.body.full
-  if (!full) return res.redirect('/')
+  // 若使用者沒輸入網址，就回傳一個狀態碼和訊息
+  if (!full) {
+    return res.status(400).send('Please input URL.')}
 
   // 產生五碼隨機字元
   const shortenURL = shortener(5)
